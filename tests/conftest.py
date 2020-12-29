@@ -1,5 +1,5 @@
 import pytest
-from brownie import config
+from brownie import config, Contract
 
 @pytest.fixture
 def andre(accounts):
@@ -78,6 +78,18 @@ def usdc(interface):
 
 @pytest.fixture
 def usdc_whale(accounts):
+    # binance8
+    yield accounts.at('0xF977814e90dA44bFA03b6295A0616a897441aceC', force=True)
+
+
+@pytest.fixture
+def usdt(interface):
+    #yield Contract.from_explorer('0xdAC17F958D2ee523a2206206994597C13D831ec7', owner=gov)
+    yield interface.USDT('0xdAC17F958D2ee523a2206206994597C13D831ec7')
+
+
+@pytest.fixture
+def usdt_whale(accounts):
     # binance8
     yield accounts.at('0xF977814e90dA44bFA03b6295A0616a897441aceC', force=True)
 
