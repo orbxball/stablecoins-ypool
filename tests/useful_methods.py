@@ -16,9 +16,9 @@ def genericStateOfStrat(strategy, currency, vault):
     print(f'Strategy Debt Limit: {debtLimit:.5f}')
     print(f'Total Strategy Returns: {totalReturns:.5f}')
     print(f'Last Report: {strState[4]}')
-    callCost = 1000000 * 30 * 1e9 # 1m gas at 30 gwei
+    callCost = 2e6 * 50e9 # 2m gas at 50 gwei
     print(f'Harvest Trigger: {strategy.harvestTrigger(callCost)}')
-    print(f'Tend Trigger: {strategy.tendTrigger(1000000 * 30 * 1e9)}')  
+    print(f'Tend Trigger: {strategy.tendTrigger(callCost)}')
     print(f'Emergency Exit: {strategy.emergencyExit()}')
 
 
