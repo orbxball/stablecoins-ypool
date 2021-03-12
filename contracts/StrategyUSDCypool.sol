@@ -6,10 +6,12 @@ import {
     BaseStrategy,
     StrategyParams
 } from "@yearnvaults/contracts/BaseStrategy.sol";
-import "@openzeppelinV3/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelinV3/contracts/math/SafeMath.sol";
-import "@openzeppelinV3/contracts/utils/Address.sol";
-import "@openzeppelinV3/contracts/token/ERC20/SafeERC20.sol";
+import {
+    SafeERC20,
+    SafeMath,
+    IERC20,
+    Address
+} from "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 
 import "../interfaces/yearn/Vault.sol";
 import "../interfaces/curve/ICurve.sol";
