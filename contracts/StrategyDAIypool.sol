@@ -205,6 +205,8 @@ contract StrategyDAIypool is BaseStrategy {
     function _withdrawSome(uint256 _amount) internal returns (uint256) {
         uint256 _amnt = _amount.mul(1e18).div(ICurve(ypool).get_virtual_price());
         uint256 _amt = _amnt.mul(1e18).div(Vault(yycrv).getPricePerFullShare());
+        uint256 _bal = IERC20(yycrv).balanceOf(address(this));
+        if (_amt > _bal) _amt = _bal;
         uint256 _before = IERC20(ycrv).balanceOf(address(this));
         Vault(yycrv).withdraw(_amt);
         uint256 _after = IERC20(ycrv).balanceOf(address(this));
